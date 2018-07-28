@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import DropReceiver from './DropReceiver/DropReceiver';
-import DraggableElement from './DraggableElement/DraggableElement';
+import DraggableContainer from './DraggableContainer/DraggableContainer';
 
 import './App.css';
 
@@ -10,8 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <DraggableElement />
-          <h1 className="App-title">Welcome to React</h1>
+          <DraggableContainer />
         </header>
         <DropReceiver />
       </div>
