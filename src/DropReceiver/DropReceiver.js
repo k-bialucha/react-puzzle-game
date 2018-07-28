@@ -10,15 +10,13 @@ class DropReceiver extends React.PureComponent {
         };
     }
     handleDrop(event) {
-        console.log('Drop!')
-        const dataType = event.dataType.getData('dataType')
+        const dataType = event.dataTransfer.getData('dataType')
         this.setState({
-            textReceived: "Hello World!" + (dataType || '')
+            textReceived: `Received ${dataType || 'unrecognized item'}!`
         })
         event.stopPropagation();
     }
     handleDragOver(event) {
-        console.log('Drag over!', event)
         const dataType = event.dataTransfer.getData('dataType')
         this.setState({
             textReceived: "Sth is dragged over" + (dataType || '')
@@ -26,7 +24,6 @@ class DropReceiver extends React.PureComponent {
         event.preventDefault();
     }
     handleDragExit(event) {
-        console.log('Drag exit!')
         this.setState({
             textReceived: undefined
         })
