@@ -23,7 +23,7 @@ class DropReceiver extends React.PureComponent {
         this.setState({
             textReceived: "Sth is dragged over" + (dataType || '')
         })
-        event.stopPropagation();
+        event.preventDefault();
     }
     handleDragExit(event) {
         console.log('Drag exit!')
