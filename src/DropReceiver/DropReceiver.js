@@ -10,9 +10,10 @@ class DropReceiver extends React.PureComponent {
         };
     }
     handleDrop(event) {
-        const dataType = event.dataTransfer.getData('dataType')
+        const dataType = event.dataTransfer.getData('dataType');
+        const id = event.dataTransfer.getData('id');
         this.setState({
-            textReceived: `Received ${dataType || 'unrecognized item'}!`
+            textReceived: `Received ${dataType || 'unrecognized item'}! ${id ? `[id: ${id}]` : ''}`
         })
         event.stopPropagation();
     }
