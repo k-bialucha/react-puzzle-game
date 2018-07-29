@@ -9,8 +9,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Grid />
-        <DraggableContainer />
+        <div className="App-column">
+          <Grid />
+          <DraggableContainer />
+        </div>
       </div>
     );
   }
