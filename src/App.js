@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { GameProvider } from './gameContext';
 
 import Timer from './Timer/Timer';
-import Grid from './Grid/Grid';
+import PuzzleGrid from './PuzzleGrid/PuzzleGrid';
 import DraggableContainer from './DraggableContainer/DraggableContainer';
 
 import './App.css';
@@ -15,7 +15,7 @@ class App extends Component {
         <div className="App">
           <div className="App-column">
             <Timer />
-            <Grid />
+            <PuzzleGrid />
             <DraggableContainer />
           </div>
         </div>

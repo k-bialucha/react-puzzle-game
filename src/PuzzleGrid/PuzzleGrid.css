@@ -1,4 +1,4 @@
-.Grid {
+.PuzzleGrid {
     display: grid;
     grid-template-columns: 120px 120px 120px;
     grid-template-rows: 120px 120px 120px;
@@ -7,7 +7,7 @@
     width: 360px;
 }
 
-.Grid-item {
+.PuzzleGrid-item {
     border: 1px solid rgb(0, 132, 255);
     border-collapse: collapse;
     padding: 20px;

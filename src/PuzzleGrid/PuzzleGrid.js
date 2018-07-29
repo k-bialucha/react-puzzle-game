@@ -4,19 +4,19 @@ import { withGameContext } from '../gameContext';
 
 import DropReceiver from '../DropReceiver/DropReceiver';
 
-import './Grid.css';
+import './PuzzleGrid.css';
 
-class Grid extends React.PureComponent {
+class PuzzleGrid extends React.PureComponent {
     render() {
         const gridElements = this.props.game.puzzles.map( 
             puzzle => <DropReceiver key={puzzle.id} correctAnswerId={puzzle.id} />
         );
         return (
-            <div className="Grid">
+            <div className="PuzzleGrid">
                 {gridElements}
             </div>
         );
     }
 }
 
-export default withGameContext(Grid);
+export default withGameContext(PuzzleGrid);
