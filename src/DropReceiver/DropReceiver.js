@@ -6,14 +6,17 @@ class DropReceiver extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            textReceived: undefined
+            textReceived: undefined,
+            isCorrect: false
         };
     }
     handleDrop(event) {
         const dataType = event.dataTransfer.getData('dataType');
         const id = event.dataTransfer.getData('id');
+        const isCorrect = id === this.props.correctAnswerId;
         this.setState({
-            textReceived: `Received ${dataType || 'unrecognized item'}! ${id ? `[id: ${id}]` : ''}`
+            textReceived: [isCorrect ? 'CORRECT' : 'INCORRECT'],
+            isCorrect
         })
         event.stopPropagation();
     }
