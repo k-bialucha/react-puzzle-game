@@ -38,7 +38,6 @@ class DropReceiver extends React.PureComponent {
                 onDragLeave={this.handleDragExit.bind(this)}
                 onDrop={this.handleDrop.bind(this)}
             >
-                <h2>Receiver</h2>
                 <p>
                     {this.state.textReceived || "Drag element here to show text."}
                 </p>
