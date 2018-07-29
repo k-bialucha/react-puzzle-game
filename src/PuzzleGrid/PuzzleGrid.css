@@ -6,11 +6,3 @@
     border: 2px solid rgb(0, 132, 255);
     width: 360px;
 }
-
-.PuzzleGrid-item {
-    border: 1px solid rgb(0, 132, 255);
-    border-collapse: collapse;
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-}
