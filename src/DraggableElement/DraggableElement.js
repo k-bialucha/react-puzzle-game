@@ -13,7 +13,7 @@ class DraggableElement extends React.PureComponent {
     render() {
         return (
             <img
-                src={logo}
+                src={this.props.image || logo}
                 className={"DraggableElement-image" + this.state.isDragged ? " DraggableElement-image--dragged" : ""}
                 draggable 
                 onDragStart={event => this.handleDrag(event, 'image', this.props.id)}
