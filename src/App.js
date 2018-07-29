@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { GameProvider } from './gameContext';
 
+import Timer from './Timer/Timer';
 import Grid from './Grid/Grid';
 import DraggableContainer from './DraggableContainer/DraggableContainer';
 
@@ -13,6 +14,7 @@ class App extends Component {
       <GameProvider>
         <div className="App">
           <div className="App-column">
+            <Timer />
             <Grid />
             <DraggableContainer />
           </div>
