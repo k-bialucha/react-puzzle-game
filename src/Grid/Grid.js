@@ -1,22 +1,16 @@
 import React from 'react';
 
+import { withGameContext } from '../gameContext';
+
 import DropReceiver from '../DropReceiver/DropReceiver';
 
 import './Grid.css';
 
-const GRID_SIZE = 3;
-
-const gridElements = [];
-
-for (let rowIndex = 1; rowIndex <= GRID_SIZE; rowIndex++) {
-    for (let colIndex = 1; colIndex <= GRID_SIZE; colIndex++) {
-        const correctAnswerId = `${rowIndex}${colIndex}`
-        gridElements.push(<DropReceiver key={correctAnswerId} correctAnswerId={correctAnswerId} />)
-    }
-}
-
 class Grid extends React.PureComponent {
     render() {
+        const gridElements = this.props.game.puzzles.map( 
+            puzzle => <DropReceiver key={puzzle.id} correctAnswerId={puzzle.id} />
+        );
         return (
             <div className="Grid">
                 {gridElements}
@@ -25,4 +19,4 @@ class Grid extends React.PureComponent {
     }
 }
 
-export default Grid;
+export default withGameContext(Grid);
