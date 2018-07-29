@@ -1,10 +1,8 @@
 import React from 'react';
 
-import './DraggableElement.css';
+import './PuzzleItem.css';
 
-import logo from '../logo.svg';
-
-class DraggableElement extends React.PureComponent {
+class PuzzleItem extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,8 +27,8 @@ class DraggableElement extends React.PureComponent {
     render() {
         return (
             <img
-                src={this.props.image || logo}
-                className={"DraggableElement-image" + (this.state.isDragged ? " DraggableElement-image--dragged" : "")}
+                src={this.props.image}
+                className={"PuzzleItem" + (this.state.isDragged ? " PuzzleItem--dragged" : "")}
                 draggable 
                 onDragStart={event => this.handleDrag(event, 'image', this.props.id)}
                 onDragEnd={this.handleDragEnd.bind(this)}
@@ -39,4 +37,4 @@ class DraggableElement extends React.PureComponent {
     }
 }
 
-export default DraggableElement;
+export default PuzzleItem;

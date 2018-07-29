@@ -1,9 +1,9 @@
-.DraggableElement-image {
+.PuzzleItem {
     height: 60px;
     margin: 6px 10px;
     border: 1px solid rgb(0, 132, 255);
 }
 
-.DraggableElement-image--dragged {
+.PuzzleItem--dragged {
     opacity: .25;
 }

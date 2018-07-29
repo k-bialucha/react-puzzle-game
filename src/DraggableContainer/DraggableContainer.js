@@ -2,13 +2,13 @@ import React from 'react';
 
 import { withGameContext } from '../gameContext';
 
-import DraggableElement from '../DraggableElement/DraggableElement';
+import PuzzleItem from '../PuzzleItem/PuzzleItem';
 
 import './DraggableContainer.css'
 
 const DraggableContainer = props => {
     const items = props.game.puzzles.map( puzzle => 
-        <DraggableElement
+        <PuzzleItem
             key={puzzle.id}
             id={puzzle.id} 
             image={puzzle.image}
