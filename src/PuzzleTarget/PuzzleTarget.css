@@ -1,10 +1,8 @@
 .PuzzleTarget {
     border: 1px solid rgb(0, 132, 255);
-    margin: 0;
 }
 
-.PuzzleTarget--correct {
-    background-color: rgba(50, 153, 50, .70);
-    border: 1px solid rgb(0, 132, 255);
-    margin: 0;
+.PuzzleTarget-image {
+    width: 118px;
+    height: 118px;
 }
