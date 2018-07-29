@@ -6,7 +6,7 @@ class PuzzleTarget extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            textReceived: undefined,
+            isDraggingOver: false,
             isCorrect: false
         };
     }
@@ -15,7 +15,7 @@ class PuzzleTarget extends React.PureComponent {
         const id = event.dataTransfer.getData('id');
         const isCorrect = id === this.props.correctAnswerId;
         this.setState({
-            textReceived: [isCorrect ? 'CORRECT' : 'INCORRECT'],
+            isDraggingOver: false,
             isCorrect
         })
         event.stopPropagation();
@@ -23,13 +23,13 @@ class PuzzleTarget extends React.PureComponent {
     handleDragOver(event) {
         const dataType = event.dataTransfer.getData('dataType')
         this.setState({
-            textReceived: "Sth is dragged over" + (dataType || '')
+            isDraggingOver: true
         })
         event.preventDefault();
     }
     handleDragExit(event) {
         this.setState({
-            textReceived: undefined
+            isDraggingOver: false
         })
         event.stopPropagation();
     }
