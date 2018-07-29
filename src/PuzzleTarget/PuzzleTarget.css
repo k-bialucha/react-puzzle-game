@@ -2,6 +2,11 @@
     border: 1px solid rgb(0, 132, 255);
 }
 
+.PuzzleTarget--drop-allowed {
+    background-color: rgb(255, 230, 100);
+    border: 1px solid rgb(0, 132, 255);
+}
+
 .PuzzleTarget-image {
     width: 118px;
     height: 118px;
