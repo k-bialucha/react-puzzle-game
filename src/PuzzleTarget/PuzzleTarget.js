@@ -10,8 +10,13 @@ class PuzzleTarget extends React.PureComponent {
             isCorrect: false
         };
     }
+    handleDragOver(event) {
+        this.setState({
+            isDraggingOver: true
+        })
+        event.preventDefault();
+    }
     handleDrop(event) {
-        const dataType = event.dataTransfer.getData('dataType');
         const id = event.dataTransfer.getData('id');
         const isCorrect = id === this.props.correctAnswerId;
         this.setState({
@@ -19,13 +24,6 @@ class PuzzleTarget extends React.PureComponent {
             isCorrect
         })
         event.stopPropagation();
-    }
-    handleDragOver(event) {
-        const dataType = event.dataTransfer.getData('dataType')
-        this.setState({
-            isDraggingOver: true
-        })
-        event.preventDefault();
     }
     handleDragExit(event) {
         this.setState({
