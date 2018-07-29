@@ -42,12 +42,8 @@ class PuzzleTarget extends React.PureComponent {
                 onDragLeave={this.state.isCorrect ? undefined : this.handleDragExit.bind(this)}
                 onDrop={this.state.isCorrect ? undefined : this.handleDrop.bind(this)}
             >
-            {this.state.isCorrect ?
+            {this.state.isCorrect &&
                 <img src={this.props.image} className="PuzzleTarget-image"/>
-                :
-                <p>
-                    {this.state.textReceived || "Drag element here to show text."}
-                </p>
             }
             </div>
         );
