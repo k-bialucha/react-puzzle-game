@@ -37,10 +37,10 @@ class DropReceiver extends React.PureComponent {
         const className = this.state.isCorrect ? "DropReceiver--correct" : "DropReceiver";
         return (
             <div 
-                onDragOver={this.handleDragOver.bind(this)}
-                onDragLeave={this.handleDragExit.bind(this)}
-                onDrop={this.handleDrop.bind(this)}
                 className={className}
+                onDragOver={this.state.isCorrect ? undefined : this.handleDragOver.bind(this)}
+                onDragLeave={this.state.isCorrect ? undefined : this.handleDragExit.bind(this)}
+                onDrop={this.state.isCorrect ? undefined : this.handleDrop.bind(this)}
             >
                 <p>
                     {this.state.textReceived || "Drag element here to show text."}
