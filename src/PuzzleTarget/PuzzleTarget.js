@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './DropReceiver.css';
+import './PuzzleTarget.css';
 
-class DropReceiver extends React.PureComponent {
+class PuzzleTarget extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -34,7 +34,7 @@ class DropReceiver extends React.PureComponent {
         event.stopPropagation();
     }
     render() {
-        const className = this.state.isCorrect ? "DropReceiver--correct" : "DropReceiver";
+        const className = this.state.isCorrect ? "PuzzleTarget--correct" : "PuzzleTarget";
         return (
             <div 
                 className={className}
@@ -50,4 +50,4 @@ class DropReceiver extends React.PureComponent {
     }
 }
 
-export default DropReceiver;
+export default PuzzleTarget;

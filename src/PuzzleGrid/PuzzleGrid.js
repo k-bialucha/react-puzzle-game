@@ -2,14 +2,14 @@ import React from 'react';
 
 import { withGameContext } from '../gameContext';
 
-import DropReceiver from '../DropReceiver/DropReceiver';
+import PuzzleTarget from '../PuzzleTarget/PuzzleTarget';
 
 import './PuzzleGrid.css';
 
 class PuzzleGrid extends React.PureComponent {
     render() {
         const gridElements = this.props.game.puzzles.map( 
-            puzzle => <DropReceiver key={puzzle.id} correctAnswerId={puzzle.id} />
+            puzzle => <PuzzleTarget key={puzzle.id} correctAnswerId={puzzle.id} />
         );
         return (
             <div className="PuzzleGrid">
