@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './DraggableElement.css';
+
 import logo from '../logo.svg';
 
 class DraggableElement extends React.PureComponent {
@@ -12,7 +14,7 @@ class DraggableElement extends React.PureComponent {
         return (
             <img
                 src={logo}
-                className="App-logo" 
+                className={"DraggableElement-image" + this.state.isDragged ? " DraggableElement-image--dragged" : ""}
                 draggable 
                 onDragStart={event => this.handleDrag(event, 'image', this.props.id)}
             />
