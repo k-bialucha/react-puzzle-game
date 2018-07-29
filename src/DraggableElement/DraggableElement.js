@@ -12,6 +12,8 @@ class DraggableElement extends React.PureComponent {
         };
     }
     handleDrag(event, type, id) {
+        if (!this.props.isGameStarted)
+            this.props.startGame();
         this.setState({
             isDragged: true
         });

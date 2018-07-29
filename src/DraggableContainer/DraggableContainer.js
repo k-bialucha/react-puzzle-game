@@ -12,6 +12,8 @@ const DraggableContainer = props => {
             key={puzzle.id}
             id={puzzle.id} 
             image={puzzle.image}
+            isGameStarted={props.game.timer !== 0}
+            startGame={props.game.startGame}
         />
     );
     return (
