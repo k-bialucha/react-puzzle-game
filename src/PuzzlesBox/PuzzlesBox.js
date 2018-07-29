@@ -4,9 +4,9 @@ import { withGameContext } from '../gameContext';
 
 import PuzzleItem from '../PuzzleItem/PuzzleItem';
 
-import './DraggableContainer.css'
+import './PuzzlesBox.css'
 
-const DraggableContainer = props => {
+const PuzzlesBox = props => {
     const items = props.game.puzzles.map( puzzle => 
         <PuzzleItem
             key={puzzle.id}
@@ -17,10 +17,10 @@ const DraggableContainer = props => {
         />
     );
     return (
-        <div className="DraggableContainer">
+        <div className="PuzzlesBox">
             {items}
         </div>
     );
 }
 
-export default withGameContext(DraggableContainer);
+export default withGameContext(PuzzlesBox);

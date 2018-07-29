@@ -4,7 +4,7 @@ import { GameProvider } from './gameContext';
 
 import Timer from './Timer/Timer';
 import PuzzleGrid from './PuzzleGrid/PuzzleGrid';
-import DraggableContainer from './DraggableContainer/DraggableContainer';
+import PuzzlesBox from './PuzzlesBox/PuzzlesBox';
 
 import './App.css';
 
@@ -16,7 +16,7 @@ class App extends Component {
           <div className="App-column">
             <Timer />
             <PuzzleGrid />
-            <DraggableContainer />
+            <PuzzlesBox />
           </div>
         </div>
       </GameProvider>
