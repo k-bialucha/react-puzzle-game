@@ -49,7 +49,7 @@ class PuzzleTarget extends React.PureComponent {
                 onDrop={this.props.isCorrect ? undefined : this.handleDrop.bind(this)}
             >
             {this.props.isCorrect &&
-                <img src={this.props.image} className="PuzzleTarget-image"/>
+                <img src={this.props.image} alt="" className="PuzzleTarget-image"/>
             }
             </div>
         );

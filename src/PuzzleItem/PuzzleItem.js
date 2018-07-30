@@ -29,6 +29,7 @@ class PuzzleItem extends React.PureComponent {
         return (
             <img
                 src={this.props.image}
+                alt=""
                 className={"PuzzleItem" + (this.props.isBeingDragged ? " PuzzleItem--dragged" : "")}
                 style={style}
                 draggable 
