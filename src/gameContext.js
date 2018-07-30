@@ -81,6 +81,16 @@ class GameProvider extends React.PureComponent {
         );
         this.setState({ puzzles });
     }
+    resetIncorrectMoves() {
+        let { puzzles } = this.state;
+        puzzles = puzzles.map(
+            puzzle => {
+                const {isIncorrect, ...restPuzzleData} = puzzle;
+                return restPuzzleData;
+            }
+        );
+        this.setState({ puzzles });
+    }
     render() {
         return (
             <Context.Provider
@@ -89,6 +99,7 @@ class GameProvider extends React.PureComponent {
                     puzzles: this.state.puzzles,
                     startGame: this.startGame.bind(this),
                     dropPuzzle: this.dropPuzzle.bind(this),
+                    resetIncorrectMoves: this.resetIncorrectMoves.bind(this)
                 }}
             >
                 {this.props.children}
