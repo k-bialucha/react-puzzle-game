@@ -79,7 +79,10 @@ class GameProvider extends React.PureComponent {
                 return puzzle;
             }
         );
-        this.setState({ puzzles });
+        this.setState({ 
+            puzzles,
+            timer: this.state.timer + 1000
+        });
     }
     resetIncorrectMoves() {
         let { puzzles } = this.state;
