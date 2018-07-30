@@ -10,7 +10,7 @@ class PuzzleItem extends React.PureComponent {
             isDragged: false
         };
     }
-    handleDrag(event, type, id) {
+    handleDrag(event, id) {
         if (!this.props.isGameStarted)
             this.props.startGame();
         this.props.resetIncorrectMoves()
@@ -18,7 +18,6 @@ class PuzzleItem extends React.PureComponent {
             isDragged: true
         });
         event.dataTransfer.effectAllowed = "move";
-        event.dataTransfer.setData('dataType', type)
         event.dataTransfer.setData('id', id)
     }
     handleDragEnd() {
@@ -34,7 +33,7 @@ class PuzzleItem extends React.PureComponent {
                 src={this.props.image}
                 className={"PuzzleItem" + (this.state.isDragged ? " PuzzleItem--dragged" : "")}
                 draggable 
-                onDragStart={event => this.handleDrag(event, 'image', this.props.id)}
+                onDragStart={event => this.handleDrag(event, this.props.id)}
                 onDragEnd={this.handleDragEnd.bind(this)}
             />
         );
