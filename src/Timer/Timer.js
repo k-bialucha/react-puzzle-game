@@ -6,7 +6,7 @@ import { withGameContext } from '../gameContext';
 const Timer = props =>
     <div>
         {props.game.timer === 0 ?
-            <h3>Drag the puzzle to start the game</h3>
+            <h3>Drag puzzle to start the game</h3>
             : <h3>Time: {props.game.timer}</h3> 
         }
     </div>;
