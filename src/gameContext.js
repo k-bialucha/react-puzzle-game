@@ -71,6 +71,12 @@ class GameProvider extends React.PureComponent {
                 return puzzle;
             }
         );
+        const isGameCompleted = puzzles.reduce(
+            (current, nextPuzzle) => current && nextPuzzle.isCorrect, 
+            true
+        );
+        if (isGameCompleted)
+            this.finishGame();
         this.setState({ puzzles });
     }
     setDropIncorrect(id) {
@@ -106,6 +112,7 @@ class GameProvider extends React.PureComponent {
                 value={{
                     timer: this.state.timer,
                     puzzles: this.state.puzzles,
+                    gameFinishedMessage: this.state.gameFinishedMessage,
                     startGame: this.startGame.bind(this),
                     dropPuzzle: this.dropPuzzle.bind(this),
                     resetIncorrectMoves: this.resetIncorrectMoves.bind(this)
