@@ -22,6 +22,8 @@ const puzzles = [
     { id: "33", image: row3col3 }
 ];
 
+const GAME_FINISHED_MESSAGE = "Awesome! You won!";
+
 const Context = React.createContext();
 
 class GameProvider extends React.PureComponent {
@@ -40,11 +42,12 @@ class GameProvider extends React.PureComponent {
             timer: this.state.timer + 19
         });
     }
-    stopGame() {
+    finishGame() {
         clearInterval(this.intervalId);
         this.setState({
-            timer: 0
+            gameFinishedMessage: GAME_FINISHED_MESSAGE
         });
+        setTimeout(() => this.setState(initialState), 5000);
     }
     dropPuzzle(targetId, droppedId) {
         const isDropCorrect = targetId === droppedId;
