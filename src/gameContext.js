@@ -24,15 +24,18 @@ const puzzles = [
 
 const GAME_FINISHED_MESSAGE = "Awesome! You won!";
 
+const initialState = {
+    timer: 0,
+    gameFinishedMessage: undefined,
+    puzzles
+};
+
 const Context = React.createContext();
 
 class GameProvider extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.state = {
-            timer: 0,
-            puzzles
-        }
+        this.state = initialState;
     }
     startGame() {
         this.intervalId = setInterval(this.incrementTimer.bind(this), 19)
