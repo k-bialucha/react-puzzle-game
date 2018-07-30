@@ -36,7 +36,10 @@ const getRandomPosition = () => ({
 })
 
 const generatePuzzles = () =>
-    puzzles
+    puzzles.map( puzzle => ({
+        ...puzzle,
+        position: getRandomPosition()
+    }))
 ;
 
 export default generatePuzzles;
