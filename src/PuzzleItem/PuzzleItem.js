@@ -12,6 +12,7 @@ class PuzzleItem extends React.PureComponent {
     handleDrag(event, type, id) {
         if (!this.props.isGameStarted)
             this.props.startGame();
+        this.props.resetIncorrectMoves()
         this.setState({
             isDragged: true
         });

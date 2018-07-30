@@ -14,6 +14,7 @@ const PuzzlesBox = props => {
             image={puzzle.image}
             isGameStarted={props.game.timer !== 0}
             startGame={props.game.startGame}
+            resetIncorrectMoves={props.game.resetIncorrectMoves}
         />
     );
     return (
