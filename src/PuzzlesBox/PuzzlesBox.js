@@ -13,9 +13,11 @@ const PuzzlesBox = props => {
             key={puzzle.id}
             id={puzzle.id} 
             image={puzzle.image}
+            isBeingDragged={!!puzzle.isBeingDragged}
             isGameStarted={props.game.timer !== 0}
             startGame={props.game.startGame}
             resetIncorrectMoves={props.game.resetIncorrectMoves}
+            setPuzzleDraggedState={props.game.setPuzzleDraggedState}
             hideElement={puzzle.isCorrect}
         />
     );
@@ -33,10 +35,12 @@ PuzzlesBox.propTypes = {
         puzzles: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.string.isRequired,
             image: PropTypes.string.isRequired,
+            isBeingDragged: PropTypes.bool,
             isCorrect: PropTypes.bool
         })).isRequired,
         timer: PropTypes.number.isRequired,
         startGame: PropTypes.func.isRequired,
-        resetIncorrectMoves: PropTypes.func.isRequired
+        resetIncorrectMoves: PropTypes.func.isRequired,
+        setPuzzleDraggedState: PropTypes.func.isRequired
     })
 }
