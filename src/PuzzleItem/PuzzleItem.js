@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './PuzzleItem.css';
 
@@ -41,3 +42,12 @@ class PuzzleItem extends React.PureComponent {
 }
 
 export default PuzzleItem;
+
+PuzzleItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    isGameStarted: PropTypes.bool.isRequired,
+    hideElement: PropTypes.bool,
+    startGame: PropTypes.func.isRequired,
+    resetIncorrectMoves: PropTypes.func.isRequired
+}

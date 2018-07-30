@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import { withGameContext } from '../gameContext';
 
@@ -11,3 +12,9 @@ const Timer = props =>
     </div>;
 
 export default withGameContext(Timer);
+
+Timer.propTypes = {
+    game: PropTypes.shape({
+        timer: PropTypes.number.isRequired
+    })
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { withGameContext } from '../gameContext';
 
@@ -29,3 +30,13 @@ class PuzzleGrid extends React.PureComponent {
 }
 
 export default withGameContext(PuzzleGrid);
+
+PuzzleGrid.propTypes = {
+    game: PropTypes.shape({
+        puzzles: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            image: PropTypes.string.isRequired
+        })).isRequired,
+        dropPuzzle: PropTypes.func.isRequired
+    })
+}
