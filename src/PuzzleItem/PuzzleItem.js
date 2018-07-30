@@ -26,6 +26,8 @@ class PuzzleItem extends React.PureComponent {
         });
     }
     render() {
+        if (this.props.hideElement)
+            return null;
         return (
             <img
                 src={this.props.image}

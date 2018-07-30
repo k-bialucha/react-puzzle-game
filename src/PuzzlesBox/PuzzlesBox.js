@@ -15,6 +15,7 @@ const PuzzlesBox = props => {
             isGameStarted={props.game.timer !== 0}
             startGame={props.game.startGame}
             resetIncorrectMoves={props.game.resetIncorrectMoves}
+            hideElement={puzzle.isCorrect}
         />
     );
     return (
