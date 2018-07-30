@@ -76,31 +76,34 @@ class GameProvider extends React.PureComponent {
             timer: this.state.timer + 1000
         });
     }
-    resetIncorrectMoves() {
+    startPuzzleDrag(id) {
         let { puzzles } = this.state;
         puzzles = puzzles.map(
             puzzle => {
-                const {isIncorrect, ...restPuzzleData} = puzzle;
+                const { isIncorrect, ...restPuzzleData } = puzzle;
+                if (puzzle.id === id)
+                    return ({ 
+                        ...restPuzzleData,
+                        isBeingDragged: true 
+                    })
                 return restPuzzleData;
             }
         );
         this.setState({ puzzles });
     }
-    setPuzzleDraggedState(id, value = true) {
+    stopPuzzleDrag(id) {
         let { puzzles } = this.state;
         puzzles = puzzles.map(
             puzzle => {
                 if (puzzle.id === id)
                     return ({ 
                         ...puzzle,
-                        isBeingDragged: value 
+                        isBeingDragged: false 
                     })
                 return puzzle;
             }
         );
-        this.setState({ 
-            puzzles,
-        });
+        this.setState({ puzzles });
     }
     render() {
         return (
@@ -111,8 +114,8 @@ class GameProvider extends React.PureComponent {
                     gameFinishedMessage: this.state.gameFinishedMessage,
                     startGame: this.startGame.bind(this),
                     dropPuzzle: this.dropPuzzle.bind(this),
-                    resetIncorrectMoves: this.resetIncorrectMoves.bind(this),
-                    setPuzzleDraggedState: this.setPuzzleDraggedState.bind(this)
+                    startPuzzleDrag: this.startPuzzleDrag.bind(this),
+                    stopPuzzleDrag: this.stopPuzzleDrag.bind(this)
                 }}
             >
                 {this.props.children}
