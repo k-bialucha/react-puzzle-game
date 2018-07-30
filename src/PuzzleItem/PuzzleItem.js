@@ -4,26 +4,16 @@ import PropTypes from 'prop-types';
 import './PuzzleItem.css';
 
 class PuzzleItem extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isDragged: false
-        };
-    }
     handleDrag(event, id) {
         if (!this.props.isGameStarted)
             this.props.startGame();
         this.props.resetIncorrectMoves()
-        this.setState({
-            isDragged: true
-        });
+        this.props.setPuzzleDraggedState(this.props.id, true);
         event.dataTransfer.effectAllowed = "move";
         event.dataTransfer.setData('id', id)
     }
     handleDragEnd() {
-        this.setState({
-            isDragged: false
-        });
+        this.props.setPuzzleDraggedState(this.props.id, false);
     }
     render() {
         if (this.props.hideElement)
@@ -31,7 +21,7 @@ class PuzzleItem extends React.PureComponent {
         return (
             <img
                 src={this.props.image}
-                className={"PuzzleItem" + (this.state.isDragged ? " PuzzleItem--dragged" : "")}
+                className={"PuzzleItem" + (this.props.isBeingDragged ? " PuzzleItem--dragged" : "")}
                 draggable 
                 onDragStart={event => this.handleDrag(event, this.props.id)}
                 onDragEnd={this.handleDragEnd.bind(this)}
@@ -45,8 +35,10 @@ export default PuzzleItem;
 PuzzleItem.propTypes = {
     id: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
+    isBeingDragged: PropTypes.bool.isRequired,
     isGameStarted: PropTypes.bool.isRequired,
     hideElement: PropTypes.bool,
     startGame: PropTypes.func.isRequired,
-    resetIncorrectMoves: PropTypes.func.isRequired
+    resetIncorrectMoves: PropTypes.func.isRequired,
+    setPuzzleDraggedState: PropTypes.func.isRequired
 }
