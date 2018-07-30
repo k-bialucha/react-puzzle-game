@@ -2,21 +2,20 @@ import React from 'react';
 
 import generatePuzzles from './utils/generatePuzzles';
 
-
 const GAME_FINISHED_MESSAGE = "Awesome! You won!";
 
-const initialState = {
+const getInitialState = () => ({
     timer: 0,
     gameFinishedMessage: undefined,
-    puzzles
-};
+    puzzles: generatePuzzles()
+});
 
 const Context = React.createContext();
 
 class GameProvider extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.state = initialState;
+        this.state = getInitialState();
     }
     startGame() {
         this.intervalId = setInterval(this.incrementTimer.bind(this), 19)
@@ -31,7 +30,7 @@ class GameProvider extends React.PureComponent {
         this.setState({
             gameFinishedMessage: GAME_FINISHED_MESSAGE
         });
-        setTimeout(() => this.setState(initialState), 5000);
+        setTimeout(() => this.setState( getInitialState() ), 5000);
     }
     dropPuzzle(targetId, droppedId) {
         const isDropCorrect = targetId === droppedId;
