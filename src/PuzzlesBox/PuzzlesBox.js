@@ -13,6 +13,7 @@ const PuzzlesBox = props => {
             key={puzzle.id}
             id={puzzle.id} 
             image={puzzle.image}
+            position={puzzle.position}
             isBeingDragged={!!puzzle.isBeingDragged}
             isGameStarted={props.game.timer !== 0}
             startGame={props.game.startGame}
@@ -35,6 +36,7 @@ PuzzlesBox.propTypes = {
         puzzles: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.string.isRequired,
             image: PropTypes.string.isRequired,
+            position: PropTypes.object.isRequired,
             isBeingDragged: PropTypes.bool,
             isCorrect: PropTypes.bool
         })).isRequired,
