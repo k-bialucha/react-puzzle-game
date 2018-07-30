@@ -1,5 +1,8 @@
 .PuzzlesBox {
-    height: 100%;
-    border: 2px dotted orangered;
-    margin: 15px 20px;
+    width: 360px;
+    height: 200px;
+    margin: 15px auto;
+    position: relative;
+    background-color: rgb(174, 33, 37);
+    border: 3px solid rgb(174, 7, 7);
 }
