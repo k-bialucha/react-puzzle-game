@@ -30,7 +30,16 @@ class PuzzleTarget extends React.PureComponent {
         event.stopPropagation();
     }
     render() {
-        const className = this.state.isDraggingOver ? "PuzzleTarget--drop-allowed" : "PuzzleTarget";
+        const className = 
+        `PuzzleTarget ${
+        this.state.isDraggingOver ?
+            "PuzzleTarget--drop-allowed" 
+            : ""
+        } ${
+        this.props.isIncorrect ? 
+            "PuzzleTarget--incorrect" 
+            : ""
+        }`;
         return (
             <div 
                 className={className}

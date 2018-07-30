@@ -2,9 +2,12 @@
     border: 1px solid rgb(0, 132, 255);
 }
 
+.PuzzleTarget--incorrect {
+    background-color: rgb(184, 32, 32);
+}
+
 .PuzzleTarget--drop-allowed {
     background-color: rgb(255, 230, 100);
-    border: 1px solid rgb(0, 132, 255);
 }
 
 .PuzzleTarget-image {
