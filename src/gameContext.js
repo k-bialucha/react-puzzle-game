@@ -46,6 +46,41 @@ class GameProvider extends React.PureComponent {
             timer: 0
         });
     }
+    dropPuzzle(targetId, droppedId) {
+        const isDropCorrect = targetId === droppedId;
+        if (isDropCorrect)
+            this.setDropCorrect(targetId);
+        else
+            this.setDropIncorrect(targetId);
+    }
+    setDropCorrect(id) {
+        let { puzzles } = this.state;
+        puzzles = puzzles.map(
+            puzzle => {
+                if (puzzle.id === id)
+                    return ({ 
+                        ...puzzle,
+                        isCorrect: true 
+                    })
+                return puzzle;
+            }
+        );
+        this.setState({ puzzles });
+    }
+    setDropIncorrect(id) {
+        let { puzzles } = this.state;
+        puzzles = puzzles.map(
+            puzzle => {
+                if (puzzle.id === id)
+                    return ({ 
+                        ...puzzle,
+                        isIncorrect: true 
+                    })
+                return puzzle;
+            }
+        );
+        this.setState({ puzzles });
+    }
     render() {
         return (
             <Context.Provider
@@ -53,6 +88,7 @@ class GameProvider extends React.PureComponent {
                     timer: this.state.timer,
                     puzzles: this.state.puzzles,
                     startGame: this.startGame.bind(this),
+                    dropPuzzle: this.dropPuzzle.bind(this),
                 }}
             >
                 {this.props.children}
