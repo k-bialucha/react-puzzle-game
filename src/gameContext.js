@@ -106,6 +106,22 @@ class GameProvider extends React.PureComponent {
         );
         this.setState({ puzzles });
     }
+    setPuzzleDraggedState(id, value = true) {
+        let { puzzles } = this.state;
+        puzzles = puzzles.map(
+            puzzle => {
+                if (puzzle.id === id)
+                    return ({ 
+                        ...puzzle,
+                        isBeingDragged: value 
+                    })
+                return puzzle;
+            }
+        );
+        this.setState({ 
+            puzzles,
+        });
+    }
     render() {
         return (
             <Context.Provider
@@ -115,7 +131,8 @@ class GameProvider extends React.PureComponent {
                     gameFinishedMessage: this.state.gameFinishedMessage,
                     startGame: this.startGame.bind(this),
                     dropPuzzle: this.dropPuzzle.bind(this),
-                    resetIncorrectMoves: this.resetIncorrectMoves.bind(this)
+                    resetIncorrectMoves: this.resetIncorrectMoves.bind(this),
+                    setPuzzleDraggedState: this.setPuzzleDraggedState.bind(this)
                 }}
             >
                 {this.props.children}
