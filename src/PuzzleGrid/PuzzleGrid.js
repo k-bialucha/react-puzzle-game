@@ -14,8 +14,8 @@ class PuzzleGrid extends React.PureComponent {
                 <PuzzleTarget 
                     key={puzzle.id}
                     id={puzzle.id}
-                    isCorrect={puzzle.isCorrect}
-                    isIncorrect={puzzle.isIncorrect}
+                    isCorrect={!!puzzle.isCorrect}
+                    isIncorrect={!!puzzle.isIncorrect}
                     image={puzzle.image}
                     dropPuzzle={this.props.game.dropPuzzle}
                 />
