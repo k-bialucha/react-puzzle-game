@@ -17,8 +17,8 @@ const PuzzlesBox = props => {
             isBeingDragged={!!puzzle.isBeingDragged}
             isGameStarted={props.game.timer !== 0}
             startGame={props.game.startGame}
-            resetIncorrectMoves={props.game.resetIncorrectMoves}
-            setPuzzleDraggedState={props.game.setPuzzleDraggedState}
+            startPuzzleDrag={props.game.startPuzzleDrag}
+            stopPuzzleDrag={props.game.stopPuzzleDrag}
             hideElement={puzzle.isCorrect}
         />
     );
@@ -42,7 +42,7 @@ PuzzlesBox.propTypes = {
         })).isRequired,
         timer: PropTypes.number.isRequired,
         startGame: PropTypes.func.isRequired,
-        resetIncorrectMoves: PropTypes.func.isRequired,
-        setPuzzleDraggedState: PropTypes.func.isRequired
+        startPuzzleDrag: PropTypes.func.isRequired,
+        stopPuzzleDrag: PropTypes.func.isRequired
     })
 }

@@ -14,13 +14,12 @@ class PuzzleItem extends React.PureComponent {
     handleDrag(event, id) {
         if (!this.props.isGameStarted)
             this.props.startGame();
-        this.props.resetIncorrectMoves()
-        this.props.setPuzzleDraggedState(this.props.id, true);
+        this.props.startPuzzleDrag(this.props.id);
         event.dataTransfer.effectAllowed = "move";
         event.dataTransfer.setData('id', id)
     }
     handleDragEnd() {
-        this.props.setPuzzleDraggedState(this.props.id, false);
+        this.props.stopPuzzleDrag(this.props.id);
     }
     render() {
         if (this.props.hideElement)
@@ -50,6 +49,6 @@ PuzzleItem.propTypes = {
     isGameStarted: PropTypes.bool.isRequired,
     hideElement: PropTypes.bool,
     startGame: PropTypes.func.isRequired,
-    resetIncorrectMoves: PropTypes.func.isRequired,
-    setPuzzleDraggedState: PropTypes.func.isRequired
+    startPuzzleDrag: PropTypes.func.isRequired,
+    stopPuzzleDrag: PropTypes.func.isRequired
 }
