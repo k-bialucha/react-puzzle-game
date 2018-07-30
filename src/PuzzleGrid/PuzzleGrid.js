@@ -9,7 +9,16 @@ import './PuzzleGrid.css';
 class PuzzleGrid extends React.PureComponent {
     render() {
         const gridElements = this.props.game.puzzles.map( 
-            puzzle => <PuzzleTarget key={puzzle.id} correctAnswerId={puzzle.id} image={puzzle.image} />
+            puzzle => (
+                <PuzzleTarget 
+                    key={puzzle.id}
+                    id={puzzle.id}
+                    isCorrect={puzzle.isCorrect}
+                    isIncorrect={puzzle.isIncorrect}
+                    image={puzzle.image}
+                    dropPuzzle={this.props.game.dropPuzzle}
+                />
+            )
         );
         return (
             <div className="PuzzleGrid">
