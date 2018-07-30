@@ -6,8 +6,7 @@ class PuzzleTarget extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            isDraggingOver: false,
-            isCorrect: false
+            isDraggingOver: false
         };
     }
     handleDragOver(event) {
@@ -18,10 +17,9 @@ class PuzzleTarget extends React.PureComponent {
     }
     handleDrop(event) {
         const id = event.dataTransfer.getData('id');
-        const isCorrect = id === this.props.correctAnswerId;
+        this.props.dropPuzzle(this.props.id, id);
         this.setState({
             isDraggingOver: false,
-            isCorrect
         })
         event.stopPropagation();
     }
@@ -36,11 +34,11 @@ class PuzzleTarget extends React.PureComponent {
         return (
             <div 
                 className={className}
-                onDragOver={this.state.isCorrect ? undefined : this.handleDragOver.bind(this)}
-                onDragLeave={this.state.isCorrect ? undefined : this.handleDragExit.bind(this)}
-                onDrop={this.state.isCorrect ? undefined : this.handleDrop.bind(this)}
+                onDragOver={this.props.isCorrect ? undefined : this.handleDragOver.bind(this)}
+                onDragLeave={this.props.isCorrect ? undefined : this.handleDragExit.bind(this)}
+                onDrop={this.props.isCorrect ? undefined : this.handleDrop.bind(this)}
             >
-            {this.state.isCorrect &&
+            {this.props.isCorrect &&
                 <img src={this.props.image} className="PuzzleTarget-image"/>
             }
             </div>
