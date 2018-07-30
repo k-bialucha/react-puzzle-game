@@ -20,6 +20,21 @@ const puzzles = [
     { id: "33", image: row3col3 }
 ];
 
+const getRandomInteger = range => 
+    Math.floor(Math.random()*range)
+;
+
+const TILE_SIZE = 124;
+const MARGIN_SIZE = 5;
+const CONTAINER_WIDTH = 360;
+const CONTAINER_HEIGHT = 200;
+
+const getRandomPosition = () => ({
+    x: MARGIN_SIZE + getRandomInteger(CONTAINER_WIDTH - TILE_SIZE - MARGIN_SIZE),
+    y: MARGIN_SIZE + getRandomInteger(CONTAINER_HEIGHT - TILE_SIZE - MARGIN_SIZE),
+    zIndex: 10 + getRandomInteger(10)
+})
+
 const generatePuzzles = () =>
     puzzles
 ;
