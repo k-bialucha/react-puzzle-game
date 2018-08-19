@@ -6,6 +6,7 @@ import Timer from './Timer/Timer';
 import PuzzleGrid from './PuzzleGrid/PuzzleGrid';
 import PuzzlesBox from './PuzzlesBox/PuzzlesBox';
 import GameFinishedBox from './GameFinishedBox/GameFinishedBox';
+import ResetButton from './ResetButton/ResetButton';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ class App extends Component {
       <GameProvider>
         <div className="App">
           <GameFinishedBox />
+          <ResetButton />
           <div className="App-column">
             <Timer />
             <PuzzleGrid />
