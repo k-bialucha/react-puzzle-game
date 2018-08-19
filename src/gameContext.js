@@ -28,6 +28,10 @@ class GameProvider extends React.PureComponent {
             timer: this.state.timer + 19
         });
     }
+    resetGame() {
+        clearInterval(this.intervalId);
+        this.setState( getInitialState() );
+    }
     finishGame() {
         clearInterval(this.intervalId);
         this.setState({
@@ -116,6 +120,7 @@ class GameProvider extends React.PureComponent {
                     puzzles: this.state.puzzles,
                     gameFinishedMessage: this.state.gameFinishedMessage,
                     startGame: this.startGame.bind(this),
+                    resetGame: this.resetGame.bind(this),
                     dropPuzzle: this.dropPuzzle.bind(this),
                     startPuzzleDrag: this.startPuzzleDrag.bind(this),
                     stopPuzzleDrag: this.stopPuzzleDrag.bind(this)
