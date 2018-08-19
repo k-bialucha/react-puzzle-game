@@ -18,7 +18,7 @@ class GameProvider extends React.PureComponent {
         this.state = getInitialState();
     }
     componentDidUpdate(prevProps, prevState) {
-        localStorage.setItem('gameState', JSON.stringify(prevState))
+        localStorage.setItem('gameState', JSON.stringify(this.state))
     }
     startGame() {
         this.intervalId = setInterval(this.incrementTimer.bind(this), 19)
