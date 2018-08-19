@@ -15,6 +15,16 @@ const Context = React.createContext();
 class GameProvider extends React.PureComponent {
     constructor(props) {
         super(props);
+        const savedState = localStorage.getItem('gameState');
+        if (savedState) {
+            this.state = JSON.parse(savedState);
+            if (this.state.gameFinishedMessage) {
+                this.finishGame();
+            }
+            else if (this.state.timer > 0)
+                this.startGame();
+        }
+        else
         this.state = getInitialState();
     }
     componentDidUpdate(prevProps, prevState) {
